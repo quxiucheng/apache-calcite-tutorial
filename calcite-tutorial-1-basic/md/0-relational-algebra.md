@@ -15,7 +15,7 @@
 |左外链接|Left outer join|⟕
 |右外链接|Right outer join|⟖
 |全链接|Full outer join|⟗
-|除| ()|Division|÷
+|除| Division|÷
 
 
 
