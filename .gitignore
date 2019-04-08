@@ -218,4 +218,5 @@ local.properties
 .worksheet
 
 *.iml
+.idea
 
