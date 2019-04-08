@@ -10,6 +10,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>calcite-tutorial-0-translation</module>
+        <module>calcite-tutorial-1-basic</module>
+        <module>calcite-tutorial-2-parser</module>
     </modules>
 
 
@@ -108,7 +110,6 @@
 
         <pluginManagement>
             <plugins>
-                <!-- Sorted by groupId, artifactId. -->
                 <plugin>
                     <groupId>org.apache.drill.tools</groupId>
                     <artifactId>drill-fmpp-maven-plugin</artifactId>

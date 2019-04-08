@@ -2,3 +2,28 @@
 
 ## 翻译
 * [官网翻译](/calcite-tutorial-0-translation/md/README.md)
+
+## 基本概念
+* [基本概念](/calcite-tutorial-1-basic/md/README.md)
+
+## SQL解析
+
+* freemarker模板
+* javacc
+* sql解析
+* 自定义解析
+
+## SQL转换
+* sql to rel
+* planner
+* find best rel
+* Implement & Execute
+
+
+
+## 常见类说明
+
+## 规则
+
+## 执行逻辑
+
