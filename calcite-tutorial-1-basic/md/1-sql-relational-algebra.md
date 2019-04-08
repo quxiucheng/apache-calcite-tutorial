@@ -1,3 +1,5 @@
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 # sql和关系代数
 
 Gamma公式展示 $\Gamma(n) = (n-1)!\quad\forall
