@@ -2,8 +2,26 @@
 [关系代数](https://zh.wikipedia.org/wiki/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0_%28%E6%95%B0%E6%8D%AE%E5%BA%93%29)
 [relational algebra](https://en.wikipedia.org/wiki/Relational_algebra)
 
+|名称|英文|标识|
+|--|--|--|
+|选择|selection|σ (sigma)
+|投影|projection|Π (PI大写)
+|笛卡尔积|Cartesian Product|×
+|并集|union|∪
+|差集|set difference|-
+|更名|rename|ρ (rho)
+|自然连接|Natural join|⋈
+|半链接|Semijoin|⋉/⋊
+|左外链接|Left outer join|⟕
+|右外链接|Right outer join|⟖
+|全链接|Full outer join|⟗
+|除| ()|Division|÷
+
+
+
+
 # 常用关系代数
-  
+
 ## 选择(selection)σ
 一元运算符，选出满足给定的谓词元组，使用的是 =, ≠, >, ≥. <. ≤，另外可以用连词 ∧ (and), ∨ (or), ¬ (not)，将多个谓词合并为一个较大的谓词
 
