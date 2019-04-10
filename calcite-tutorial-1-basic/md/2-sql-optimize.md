@@ -80,6 +80,8 @@ where A.a = B.b and B.b = C.c 可以合并为={A.a,B.b,C.c} 而不是两个等�
 
 * 并集 
 
+原始值: 
+
 ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R&space;\bigcup&space;S))
 
 优化后等价表达式 
@@ -88,7 +90,10 @@ where A.a = B.b and B.b = C.c 可以合并为={A.a,B.b,C.c} 而不是两个等�
 
 ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)&space;\bigcup&space;\sigma_{A}(S))
 
-* 交集
+* 交集 
+
+原始值: 
+
 ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R&space;\bigcap&space;S))
 
 优化后等价表达式 
