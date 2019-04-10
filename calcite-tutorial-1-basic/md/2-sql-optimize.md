@@ -64,16 +64,24 @@ where A.a = B.b and B.b = C.c 可以合并为={A.a,B.b,C.c} 而不是两个等�
 
 选择下推到集合的运算
 
-1. ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R&space;\setminus&space;S))
-  * ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)\setminus&space;\sigma_{A}(S))
-  * ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)\setminus&space;S)
-2. ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R&space;\bigcup&space;S)))
-  *
-3. ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R&space;\bigcap&space;S)))
+![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R&space;\setminus&space;S))
+![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)\setminus&space;\sigma_{A}(S))
+![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)\setminus&space;S)
+
+![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R&space;\bigcup&space;S))
+![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)&space;\bigcup&space;\sigma_{A}(S))
+
+![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R&space;\bigcap&space;S))
+![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)&space;\bigcap&space;\sigma_{A}(S))
+![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)&space;\bigcap&space;S)
+![](https://latex.codecogs.com/gif.latex?R&space;\bigcap&space;\sigma_{A}(S))
+
+
+
 
 |初始式| 等级表达式1 | 等价表达式2 | 等价表达式3 |
 |---|---|---|---|
-|
+
 
 #### 选择和投影
 在投影之前进行选择：如果选择条件中引用的字段是投影中的字段的子集，则选择与投影满足交换性。
