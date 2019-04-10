@@ -67,23 +67,33 @@ where A.a = B.b and B.b = C.c 可以合并为={A.a,B.b,C.c} 而不是两个等�
 * 除运算
 
 原始值: 
+
 ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R&space;\setminus&space;S)) 
 
-优化后等价表达式
-表达式:
+优化后等价表达式 
+
+表达式: 
+
 ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)\setminus&space;\sigma_{A}(S))
 ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)\setminus&space;S)
 
-* 并集
+* 并集 
+
 ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R&space;\bigcup&space;S))
-优化后等价表达式
-表达式:
+
+优化后等价表达式 
+
+表达式: 
+
 ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)&space;\bigcup&space;\sigma_{A}(S))
 
 * 交集
 ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R&space;\bigcap&space;S))
-优化后等价表达式
-表达式:
+
+优化后等价表达式 
+
+表达式: 
+
 ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)&space;\bigcap&space;\sigma_{A}(S))
 ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)&space;\bigcap&space;S)
 ![](https://latex.codecogs.com/gif.latex?R&space;\bigcap&space;\sigma_{A}(S))
