@@ -74,7 +74,8 @@ where A.a = B.b and B.b = C.c 可以合并为={A.a,B.b,C.c} 而不是两个等�
 
 表达式: 
 
-![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)\setminus&space;\sigma_{A}(S))
+![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)\setminus&space;\sigma_{A}(S)) 
+
 ![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)\setminus&space;S)
 
 * 并集 
@@ -94,9 +95,12 @@ where A.a = B.b and B.b = C.c 可以合并为={A.a,B.b,C.c} 而不是两个等�
 
 表达式: 
 
-![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)&space;\bigcap&space;\sigma_{A}(S))
-![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)&space;\bigcap&space;S)
-![](https://latex.codecogs.com/gif.latex?R&space;\bigcap&space;\sigma_{A}(S))
+![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)&space;\bigcap&space;\sigma_{A}(S)) 
+
+![](https://latex.codecogs.com/gif.latex?\sigma_{A}(R)&space;\bigcap&space;S) 
+
+![](https://latex.codecogs.com/gif.latex?R&space;\bigcap&space;\sigma_{A}(S)) 
+
 
 
 
