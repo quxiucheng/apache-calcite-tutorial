@@ -12,3 +12,6 @@
 ## 流式SQL中的窗口
 [流式SQL中的窗口](/calcite-tutorial-1-basic/md/3-sql-stream-window.md)
 
+## 流式SQL中的窗口
+[水位线](/calcite-tutorial-1-basic/md/4-wartermark.md)
+
