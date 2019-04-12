@@ -11,5 +11,54 @@
 
     <artifactId>parser-1-fmpp-tutorial</artifactId>
 
+    <build>
+        <plugins>
+            <plugin>
+                <configuration>
+                    <!--配置文件地址-->
+                    <cfgFile>src/main/codegen/config.fmpp</cfgFile>
+                    <!--文件输出目录-->
+                    <outputDirectory>${project.build.directory}/generated-sources/fmpp/</outputDirectory>
+                    <!--文件模板存放目录-->
+                    <templateDirectory>src/main/codegen/templates</templateDirectory>
+                </configuration>
+                <groupId>com.googlecode.fmpp-maven-plugin</groupId>
+                <artifactId>fmpp-maven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.freemarker</groupId>
+                        <artifactId>freemarker</artifactId>
+                        <version>${freemarker.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>net.sourceforge.fmpp</groupId>
+                        <artifactId>fmpp</artifactId>
+                        <version>${fmpp.version}</version>
+                        <exclusions>
+                            <exclusion>
+                            <groupId>org.freemarker</groupId>
+                            <artifactId>freemarker</artifactId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/codegen</directory>
+                <targetPath>codegen</targetPath>
+            </resource>
+        </resources>
+    </build>
 
 </project>

@@ -1,0 +1,74 @@
+PARSER_BEGIN(Calculator)
+
+import java.io.* ;
+
+public class Calculator{
+
+    public Calculator(String expr) {
+        this((Reader)(new StringReader(expr)));
+    }
+
+    public static void main(String[] args) throws Exception  {
+       Calculator calc = new Calculator(args[0]);
+       System.out.println(calc.calc());
+    }
+}
+PARSER_END(Calculator)
+
+
+
+
+SKIP:{
+    " "
+    | "\t"
+    | "\n"
+    | "\r"
+    | "\r\n"
+}
+
+
+
+TOKEN:{
+    <ADD :"+">
+    | <SUB :"-">
+    | <MUL :"*">
+    | <DIV :"/">
+    | <LPAREN :"(">
+    | <RPAREN :")">
+    | <NUMBER :
+            ["0"-"9"](["0"-"9"])*
+            | (["0"-"9"])+ "." (["0"-"9"])*
+      >
+}
+double calc():
+{
+    Token t ;
+    Double i ;
+    Double j ;
+    Double value ;
+}
+{
+    t = <NUMBER>
+    { i = Double.parseDouble( t.image ) ; }
+    { value = i ; }
+    (
+        <ADD>
+        t = <NUMBER>
+        { j = Double.parseDouble( t.image ) ; }
+        { value = i + j; }
+        |
+         <SUB>
+
+
+    )*
+    <EOF>
+    { return value ; }
+}
+
+double add(Double a,Double b):
+{
+}
+{
+    {return a+b;}
+}
+

@@ -12,4 +12,26 @@
     <artifactId>parser-2-javacc-tutorial</artifactId>
 
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>javacc-maven-plugin</artifactId>
+                <configuration>
+                    <sourceDirectory>${basedir}/src/main/codegen</sourceDirectory>
+                    <includes>
+                        <include>**/Parser.jj</include>
+                    </includes>
+                    <lookAhead>2</lookAhead>
+                    <isStatic>false</isStatic>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/codegen</directory>
+                <targetPath>codegen</targetPath>
+            </resource>
+        </resources>
+    </build>
 </project>

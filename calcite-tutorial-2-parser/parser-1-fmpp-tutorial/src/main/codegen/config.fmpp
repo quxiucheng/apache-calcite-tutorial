@@ -1,0 +1,17 @@
+# 用data标示为变量
+# 一般变量替换为 ${one} or ${two.three} ,具体语法请参考freemarker语法
+# include 指令插入另个freemarker模板
+data: {
+     one:1,
+     two: {
+        three: 3
+     }
+     implementationFiles: [
+             "parserImpls.ftl"
+      ]
+}
+
+#
+freemarkerLinks: {
+    includes: includes/
+}
