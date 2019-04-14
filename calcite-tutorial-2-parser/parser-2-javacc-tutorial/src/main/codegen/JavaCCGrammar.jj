@@ -1,0 +1,105 @@
+PARSER_BEGIN(JavaCCGrammar)
+public class JavaCCGrammar{
+
+    public static void main(String[] args) throws Exception  {
+       JavaCCGrammar grammar = new JavaCCGrammar(System.in);
+       grammar.function1();
+    }
+}
+PARSER_END(JavaCCGrammar)
+
+TOKEN:{
+      <SELECT :"select">
+    | <UPDATE :"update">
+    | <DELETE :"delete">
+    | <COMMA:",">
+    | <FORM:"form">
+    | <AS:"as">
+    | <WHERE:"where">
+    | <EQUAL:"=">
+    | <OPEN_PAR: "(">
+    | <CLOSE_PAR: ")">
+}
+
+
+void function1():
+{
+    // 定义局部变量
+    int i=0;
+}
+{
+    {return;}
+}
+
+double function2():
+{
+    int i=0;
+}
+{
+    // 带返回值
+    {return i;}
+}
+
+double function3():
+{
+    double i;
+}
+{
+   {i = function2();}
+   {return i;}
+}
+void assignment() :
+{
+    Token st;
+    Token dt;
+}
+{
+     st = <SELECT>
+     dt = <DELETE>
+
+}
+
+void ifExpr():
+{}
+{
+    [
+        <SELECT>
+        {
+            System.out.println("if select");
+        }
+    ]
+
+    // 循环，出现一次
+    (<SELECT>)?
+
+
+
+}
+
+void ifElseExpr():
+{}
+{
+    (
+        <SELECT> {System.out.println("if else select");}
+        |
+        <UPDATE>  {System.out.println("if else update");}
+        |
+        <DELETE>  {System.out.println("if else delete");}
+        |
+        {
+           System.out.println("other");
+        }
+    )
+}
+
+void while1Expr():{
+}
+{
+    (<SELECT>)*
+}
+
+void while2Expr():{
+}
+{
+    (<SELECT>)+
+}
