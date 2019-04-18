@@ -1,3 +1,11 @@
+// javacc编译设置
+options {
+    STATIC = false;
+    IGNORE_CASE = true;
+    UNICODE_INPUT = true;
+}
+
+// 解析类
 PARSER_BEGIN(JavaCCGrammar)
 public class JavaCCGrammar{
 
@@ -8,6 +16,16 @@ public class JavaCCGrammar{
 }
 PARSER_END(JavaCCGrammar)
 
+// 忽律的字符
+SKIP:{
+    " "
+    | "\t"
+    | "\n"
+    | "\r"
+    | "\r\n"
+}
+
+// token关键字
 TOKEN:{
       <SELECT :"select">
     | <UPDATE :"update">
@@ -21,7 +39,17 @@ TOKEN:{
     | <CLOSE_PAR: ")">
 }
 
+// 定义java代码块
+void javaCodeDemo():
+{}
+{
+    {
+        int i = 0;
+        System.out.println(i);
+    }
+}
 
+// 函数
 void function1():
 {
     // 定义局部变量
@@ -31,6 +59,7 @@ void function1():
     {return;}
 }
 
+// 返回值
 double function2():
 {
     int i=0;
@@ -39,7 +68,7 @@ double function2():
     // 带返回值
     {return i;}
 }
-
+// 函数调用
 double function3():
 {
     double i;
@@ -48,7 +77,9 @@ double function3():
    {i = function2();}
    {return i;}
 }
-void assignment() :
+
+// token复制
+void tokenAssignment() :
 {
     Token st;
     Token dt;
@@ -59,6 +90,7 @@ void assignment() :
 
 }
 
+// if语句
 void ifExpr():
 {}
 {
@@ -76,6 +108,7 @@ void ifExpr():
 
 }
 
+// if - else
 void ifElseExpr():
 {}
 {
@@ -92,12 +125,14 @@ void ifElseExpr():
     )
 }
 
+// while 0~n
 void while1Expr():{
 }
 {
     (<SELECT>)*
 }
 
+// while 1~n
 void while2Expr():{
 }
 {
