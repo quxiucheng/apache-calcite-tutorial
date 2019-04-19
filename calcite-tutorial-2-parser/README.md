@@ -28,7 +28,7 @@ Calcite基于FreeMarker生成代码,之后编译运行,fmpp例子请看系统代
 第二个L表示每次都进行最左推导(在推导语法树的过程中每次都替换句型中最左的非终结符为终结符。类似还有最右推导)；
 k表示的是每次向前探索(lookahead)k个终结符
 
-[JavaCC基本离职](/calcite-tutorial-2-parser/parser-2-javacc-tutorial/README.md)
+[JavaCC基本例子](/calcite-tutorial-2-parser/parser-2-javacc-tutorial/README.md)
 
 
 
