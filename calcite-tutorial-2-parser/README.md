@@ -19,6 +19,18 @@ Calcite基于FreeMarker生成代码,之后编译运行,fmpp例子请看系统代
 
 ## JavaCC使用
 
+[官网](https://javacc.or)
+
+[语法文件](https://javacc.org/javaccgrm)
+
+使用递归下降语法解析，LL(k)。
+其中，第一个L表示从左到右扫描输入；
+第二个L表示每次都进行最左推导(在推导语法树的过程中每次都替换句型中最左的非终结符为终结符。类似还有最右推导)；
+k表示的是每次向前探索(lookahead)k个终结符
+
+[JavaCC基本离职](/calcite-tutorial-2-parser/parser-2-javacc-tutorial/README.md)
+
+
 
 
 

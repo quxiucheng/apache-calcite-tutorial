@@ -8,8 +8,8 @@
 
 ## SQL解析
 
-* freemarker模板
-* javacc
+* [freemarker模板](/calcite-tutorial-2-parser/parser-1-fmpp-tutorial/README.md)
+* [javacc](/calcite-tutorial-2-parser/parser-2-javacc-tutorial/)
 * sql解析
 * 自定义解析
 
