@@ -1,4 +1,5 @@
 # fmpp 具体代码实例
+FMPP是以freemarker为模板的模板生成器
 
 ## 1.添加Maven依赖
 ```xml
