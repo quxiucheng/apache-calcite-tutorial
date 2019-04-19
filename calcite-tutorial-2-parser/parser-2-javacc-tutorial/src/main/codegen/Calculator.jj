@@ -1,4 +1,5 @@
 PARSER_BEGIN(Calculator)
+package com.github.quxiucheng.parser.javacc.calc;
 
 import java.io.* ;
 

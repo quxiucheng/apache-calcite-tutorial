@@ -7,6 +7,9 @@ options {
 
 // 解析类
 PARSER_BEGIN(JavaCCGrammar)
+
+package com.github.quxiucheng.parser.javacc.grammar;
+
 public class JavaCCGrammar{
 
     public static void main(String[] args) throws Exception  {
@@ -137,4 +140,10 @@ void while2Expr():{
 }
 {
     (<SELECT>)+
+}
+
+
+// Java 代码
+JAVACODE void print(Token t){
+    System.out.println(t);
 }
