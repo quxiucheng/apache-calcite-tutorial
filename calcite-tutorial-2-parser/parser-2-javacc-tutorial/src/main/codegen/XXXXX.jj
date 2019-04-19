@@ -1,0 +1,27 @@
+PARSER_BEGIN(TestT)
+
+import java.io.* ;
+
+public class TestT {
+
+    public TestT(String expr) {
+        this((Reader)(new StringReader(expr)));
+    }
+
+    public static void main(String[] args) throws Exception  {
+
+    }
+}
+
+PARSER_END(TestT)
+
+// 忽律的字符
+SKIP:{
+    " "
+}
+
+
+// 关键字
+TOKEN:{
+    <PLUS :"+">
+}
