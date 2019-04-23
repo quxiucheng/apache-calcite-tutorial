@@ -30,6 +30,13 @@ k表示的是每次向前探索(lookahead)k个终结符
 
 [JavaCC基本例子](/calcite-tutorial-2-parser/parser-2-javacc-tutorial/README.md)
 
+## Calcite SQL解析
+[Calcite SQL解析](/calcite-tutorial-2-parser/parser-3-calcite-tutorial/README.md)
+
+
+## Calcite自定义解析SQL
+[Calcite自定义解析SQL](/calcite-tutorial-2-parser/parser-4-calcite-custom-tutorial/README.md)
+
 
 
 
