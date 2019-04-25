@@ -8,10 +8,10 @@
 
 ## SQL解析
 
-* freemarker模板
-* javacc
-* sql解析
-* 自定义解析
+* [freemarker模板](/calcite-tutorial-2-parser/parser-1-fmpp-tutorial/README.md)
+* [javacc教程](/calcite-tutorial-2-parser/parser-2-javacc-tutorial/)
+* [Calcite SQL解析](/calcite-tutorial-2-parser/parser-3-calcite-tutorial/)
+* [自定义解析](/calcite-tutorial-2-parser/parser-4-calcite-custom-tutorial/)
 
 ## SQL转换
 * sql to rel

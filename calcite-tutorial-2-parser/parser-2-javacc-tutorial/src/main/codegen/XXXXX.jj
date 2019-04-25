@@ -1,0 +1,27 @@
+PARSER_BEGIN(XXXXX)
+package com.github.quxiucheng.parser.javacc.demo;
+import java.io.* ;
+
+public class XXXXX {
+
+    public XXXXX(String expr) {
+        this((Reader)(new StringReader(expr)));
+    }
+
+    public static void main(String[] args) throws Exception  {
+
+    }
+}
+
+PARSER_END(XXXXX)
+
+// 忽律的字符
+SKIP:{
+    " "
+}
+
+
+// 关键字
+TOKEN:{
+    <PLUS :"+">
+}

@@ -1,0 +1,149 @@
+// javacc编译设置
+options {
+    STATIC = false;
+    IGNORE_CASE = true;
+    UNICODE_INPUT = true;
+}
+
+// 解析类
+PARSER_BEGIN(JavaCCGrammar)
+
+package com.github.quxiucheng.parser.javacc.grammar;
+
+public class JavaCCGrammar{
+
+    public static void main(String[] args) throws Exception  {
+       JavaCCGrammar grammar = new JavaCCGrammar(System.in);
+       grammar.function1();
+    }
+}
+PARSER_END(JavaCCGrammar)
+
+// 忽律的字符
+SKIP:{
+    " "
+    | "\t"
+    | "\n"
+    | "\r"
+    | "\r\n"
+}
+
+// token关键字
+TOKEN:{
+      <SELECT :"select">
+    | <UPDATE :"update">
+    | <DELETE :"delete">
+    | <COMMA:",">
+    | <FORM:"form">
+    | <AS:"as">
+    | <WHERE:"where">
+    | <EQUAL:"=">
+    | <OPEN_PAR: "(">
+    | <CLOSE_PAR: ")">
+}
+
+// 定义java代码块
+void javaCodeDemo():
+{}
+{
+    {
+        int i = 0;
+        System.out.println(i);
+    }
+}
+
+// 函数
+void function1():
+{
+    // 定义局部变量
+    int i=0;
+}
+{
+    {return;}
+}
+
+// 返回值
+double function2():
+{
+    int i=0;
+}
+{
+    // 带返回值
+    {return i;}
+}
+// 函数调用
+double function3():
+{
+    double i;
+}
+{
+   {i = function2();}
+   {return i;}
+}
+
+// token复制
+void tokenAssignment() :
+{
+    Token st;
+    Token dt;
+}
+{
+     st = <SELECT>
+     dt = <DELETE>
+
+}
+
+// if语句
+void ifExpr():
+{}
+{
+    [
+        <SELECT>
+        {
+            System.out.println("if select");
+        }
+    ]
+
+    // 循环，出现一次
+    (<SELECT>)?
+
+
+
+}
+
+// if - else
+void ifElseExpr():
+{}
+{
+    (
+        <SELECT> {System.out.println("if else select");}
+        |
+        <UPDATE>  {System.out.println("if else update");}
+        |
+        <DELETE>  {System.out.println("if else delete");}
+        |
+        {
+           System.out.println("other");
+        }
+    )
+}
+
+// while 0~n
+void while1Expr():{
+}
+{
+    (<SELECT>)*
+}
+
+// while 1~n
+void while2Expr():{
+}
+{
+    (<SELECT>)+
+}
+
+
+// Java 代码
+JAVACODE void print(Token t){
+    System.out.println(t);
+}

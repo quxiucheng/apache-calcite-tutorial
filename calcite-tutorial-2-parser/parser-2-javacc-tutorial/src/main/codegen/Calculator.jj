@@ -1,0 +1,99 @@
+PARSER_BEGIN(Calculator)
+package com.github.quxiucheng.parser.javacc.calc;
+
+import java.io.* ;
+
+public class Calculator {
+
+    public Calculator(String expr) {
+        this((Reader)(new StringReader(expr)));
+    }
+
+    public static void main(String[] args) throws Exception  {
+       Calculator calc = new Calculator(args[0]);
+       System.out.println(calc.calc());
+    }
+}
+
+PARSER_END(Calculator)
+
+
+
+// 忽律的字符
+SKIP:{
+    " "
+    | "\t"
+    | "\n"
+    | "\r"
+    | "\r\n"
+}
+
+
+// 关键字
+TOKEN:{
+    <ADD :"+">
+    | <SUB :"-">
+    | <MUL :"*">
+    | <DIV :"/">
+    | <NUMBER :
+            <DIGITS>
+            | <DIGITS> "." <DIGITS>
+            | <DIGITS> "."
+            | "." <DIGITS>
+      >
+    | <#DIGITS : (["0"-"9"])+ >
+}
+
+// 计算
+double calc():
+{
+    Double value ;
+    Double result = 0.0;
+}
+{
+  result = term()
+  // 加减
+  (
+      <ADD>
+      value = term()
+      {result += value;}
+      |
+      <SUB>
+      value =term()
+      {result -= value;}
+  )*
+  {return result;}
+}
+
+// 乘除
+double term():
+{
+    double value;
+    double result;
+}
+{
+    result = getNumber()
+    (
+       <MUL>
+        value = getNumber()
+        {result *= value;}
+       |
+       <DIV>
+       value = getNumber()
+       {result /= value;}
+    )*
+    {return result;}
+
+}
+
+// 获取字符串
+double getNumber():
+{
+    double number;
+    Token t;
+}
+{
+    t = <NUMBER>
+    {number = Double.parseDouble(t.image);
+    return number;}
+}

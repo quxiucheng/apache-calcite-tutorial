@@ -3,20 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>apache-calcite-tutorial</artifactId>
+        <artifactId>calcite-tutorial-2-parser</artifactId>
         <groupId>com.github.quxiucheng</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>calcite-tutorial-2-parser</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>parser-1-fmpp-tutorial</module>
-        <module>parser-2-javacc-tutorial</module>
-        <module>parser-3-calcite-tutorial</module>
-        <module>parser-4-calcite-custom-tutorial</module>
-    </modules>
+    <artifactId>parser-3-calcite-tutorial</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.calcite</groupId>
+            <artifactId>calcite-core</artifactId>
+            <version>1.18.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
