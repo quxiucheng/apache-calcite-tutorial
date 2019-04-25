@@ -23,6 +23,7 @@ SqlNode SqlCreateFunction() :
     SqlNode functionName = null;
     String className = null;
     String methodName = null;
+    String comment = null;
     SqlNodeList properties = null;
 }
 {
@@ -75,9 +76,16 @@ SqlNode SqlCreateFunction() :
         ]
         <RPAREN>
     ]
+    // if
+    [
+        <COMMENT> {
+            // 备注
+            comment = StringLiteralValue();
+        }
+    ]
 
     {
-        return new SqlCreateFunction(createPos, functionName, className, methodName, properties);
+        return new SqlCreateFunction(createPos, functionName, className, methodName, comment, properties);
     }
 }
 

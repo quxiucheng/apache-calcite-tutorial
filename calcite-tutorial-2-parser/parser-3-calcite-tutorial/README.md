@@ -5,100 +5,13 @@
 ![](/calcite-tutorial-2-parser/parser-3-calcite-tutorial/md/resource/parserCode.jpg)
 
 ### config.fmpp
-calcite 模板配置
-```
-data: {
-    parser: {
-      # Generated parser implementation class package and name
-      # 生成解析器实现类包和名称
-      # 包名
-      package: "com.github.quxiucheng.tutorial.parser.custom",
-      # 实体类名
-      class: "ExtensionSqlParserImpl",
+freemarker的配置模板
 
-      # List of import statements.
-      # 导入处理的语句
-      imports: [
-      ]
+### Parser.jj
+JavaCC解析器
 
-      # List of keywords.
-      # 关键字列表
-      keywords: [
-      ]
-
-      # List of keywords from "keywords" section that are not reserved.
-      # “keywords”部分中未保留的关键字列表。
-      nonReservedKeywords: [
-        
-      ]
-
-      # List of additional join types. Each is a method with no arguments.
-      # Example: LeftSemiJoin()
-      # 其他连接类型的列表。每个方法都是没有参数的方法。
-      joinTypes: [
-      ]
-
-      # List of methods for parsing custom SQL statements.
-      # 用于解析自定义SQL语句的方法列表。
-      statementParserMethods: [
-      ]
-
-      # List of methods for parsing custom literals.
-      # Example: ParseJsonLiteral().
-      # 解析自定义文本的方法列表
-      literalParserMethods: [
-      ]
-
-      # List of methods for parsing custom data types.
-      # 用于解析自定义数据类型的方法列表。
-      dataTypeParserMethods: [
-      ]
-
-      # List of methods for parsing extensions to "ALTER <scope>" calls.
-      # Each must accept arguments "(SqlParserPos pos, String scope)".
-      # 每个都必须接受参数 "(SqlParserPos pos, String scope)".
-      # 解析扩展到“ALTER ”调用的方法。
-      alterStatementParserMethods: [
-
-      ]
-
-      # List of methods for parsing extensions to "CREATE [OR REPLACE]" calls.
-      # Each must accept arguments "(SqlParserPos pos, boolean replace)".
-      # 解析扩展以"CREATE [OR REPLACE]"调用的方法列表。
-      # 每个都必须接受参数 "(SqlParserPos pos, String scope)".
-      createStatementParserMethods: [
-      ]
-
-      # List of methods for parsing extensions to "DROP" calls.
-      # Each must accept arguments "(SqlParserPos pos)".
-      # 解析扩展到“DROP”调用的方法列表。
-      # 每个都必须接受参数 "(SqlParserPos pos)".
-      dropStatementParserMethods: [
-      ]
-
-      # List of files in @includes directory that have parser method
-      # implementations for parsing custom SQL statements, literals or types
-      # given as part of "statementParserMethods", "literalParserMethods" or
-      # "dataTypeParserMethods".
-      # @includes目录中具有解析器方法的文件列表
-      # 解析自定义SQL语句、文本或类型的实现
-      # 作为“statementParserMethods”、“literalParserMethods”或“dataTypeParserMethods”的一部分给出。
-      implementationFiles: [
-        "parserImpls.ftl"
-      ]
-
-      includeCompoundIdentifier: true
-      includeBraces: true
-      includeAdditionalDeclarations: false
-
-    }
-}
-freemarkerLinks: {
-    includes: includes/
-}
-```
 ### parserImpls.ftl/compoundIdentifier.ftl
-JavaCC语法格式的解析SQL代码
+自定义JavaCC语法格式的解析SQL代码
 
 ### 生成解析器的流程
 如图:

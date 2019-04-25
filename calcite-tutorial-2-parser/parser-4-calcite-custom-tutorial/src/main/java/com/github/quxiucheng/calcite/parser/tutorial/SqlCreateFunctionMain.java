@@ -23,7 +23,7 @@ public class SqlCreateFunctionMain {
         // Sql语句
         String sql = "create function " +
                 "hr.custom_function as 'com.github.quxiucheng.calcite.func.CustomFunction' " +
-                // "method 'eval'  " +
+                "method 'eval'  " +
                 "property ('a'='b','c'='1') ";
         // 解析sql
         SqlNode sqlNode = parser.parseQuery(sql);

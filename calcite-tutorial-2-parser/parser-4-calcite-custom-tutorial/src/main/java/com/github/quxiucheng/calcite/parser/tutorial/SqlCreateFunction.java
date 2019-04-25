@@ -24,9 +24,11 @@ public class SqlCreateFunction extends SqlCall {
 
     private String methodName;
 
+    private String comment;
+
 
     public SqlCreateFunction(SqlParserPos pos,
-                             SqlNode functionName, String className, String methodName,
+                             SqlNode functionName, String className, String methodName, String comment,
                              SqlNodeList properties) {
 
         super(pos);
@@ -50,6 +52,10 @@ public class SqlCreateFunction extends SqlCall {
 
     public SqlNodeList getProperties() {
         return properties;
+    }
+
+    public String getComment() {
+        return comment;
     }
 
     @Override
@@ -78,7 +84,6 @@ public class SqlCreateFunction extends SqlCall {
             writer.newlineAndIndent();
             writer.keyword("METHOD");
             writer.print("'" + methodName + "'");
-            writer.newlineAndIndent();
         }
         if (properties != null) {
             writer.newlineAndIndent();
