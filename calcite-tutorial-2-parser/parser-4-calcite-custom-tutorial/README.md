@@ -413,7 +413,7 @@ freemarkerLinks: {
 定义关键字
 ![](/calcite-tutorial-2-parser/parser-4-calcite-custom-tutorial/md/resource/keywords.png)
 
-#### keywords
+#### nonReservedKeywords
 keywords定义关键字中,保留的关键字
 ![](/calcite-tutorial-2-parser/parser-4-calcite-custom-tutorial/md/resource/nonReservedKeywords.png)
 
