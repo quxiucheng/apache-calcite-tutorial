@@ -1,0 +1,6 @@
+columnList:
+- name: id
+  type: integer
+- name: name
+  type: varchar
+name: role_info

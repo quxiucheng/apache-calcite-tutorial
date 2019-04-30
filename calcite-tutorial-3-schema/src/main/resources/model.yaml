@@ -1,0 +1,17 @@
+version: 1.0
+defaultSchema: tutorial
+schemas:
+- name: tutorial
+  tables:
+  - type: custom
+    name: user_info
+    factory: com.github.quxiucheng.calcite.schema.tutorial.TutorialTableFactory
+    operand:
+      ddl: calcite-tutorial-3-schema/src/main/resources/user/user.yaml
+      data: calcite-tutorial-3-schema/src/main/resources/user/user.txt
+  - type: custom
+    name: role
+    factory: com.github.quxiucheng.calcite.schema.tutorial.TutorialTableFactory
+    operand:
+      ddl: calcite-tutorial-3-schema/src/main/resources/role/role.yaml
+      data: calcite-tutorial-3-schema/src/main/resources/role/role.txt

@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "defaultSchema": "tutorial",
+  "schemas": [ {
+    "name": "tutorial",
+    "type": "custom",
+    "factory": "com.github.quxiucheng.calcite.schema.tutorial.TutorialSchemaFactory",
+    "operand": {
+      "tables": [
+        {
+        "ddl": "calcite-tutorial-3-schema/src/main/resources/user/user.json",
+        "data": "calcite-tutorial-3-schema/src/main/resources/user/user.txt"
+      },{
+        "ddl": "calcite-tutorial-3-schema/src/main/resources/role/role.json",
+        "data": "calcite-tutorial-3-schema/src/main/resources/role/role.txt"
+      }
+      ]
+    }
+  } ]
+}
