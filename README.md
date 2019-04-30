@@ -13,6 +13,15 @@
 * [Calcite SQL解析](/calcite-tutorial-2-parser/parser-3-calcite-tutorial/)
 * [自定义解析](/calcite-tutorial-2-parser/parser-4-calcite-custom-tutorial/)
 
+## Schema
+
+## SQL校验
+
+* [Calcite SQL校验](/calcite-tutorial-2-parser/parser-4-calcite-custom-tutorial/)
+* [Calcite 自定义SQL校验](/calcite-tutorial-2-parser/parser-4-calcite-custom-tutorial/)
+
+
+<!--
 ## SQL转换
 * sql to rel
 * planner
@@ -27,3 +36,4 @@
 
 ## 执行逻辑
 
+-->
