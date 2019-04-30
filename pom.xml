@@ -12,8 +12,8 @@
         <module>calcite-tutorial-0-translation</module>
         <module>calcite-tutorial-1-basic</module>
         <module>calcite-tutorial-2-parser</module>
-        <module>calcite-tutorial-4-validator</module>
         <module>calcite-tutorial-3-schema</module>
+        <module>calcite-tutorial-4-validator</module>
     </modules>
 
 
