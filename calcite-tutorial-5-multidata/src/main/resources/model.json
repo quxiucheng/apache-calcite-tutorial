@@ -1,0 +1,35 @@
+{
+  "version": "1.0",
+  "defaultSchema": "TEST_CSV",
+  "schemas": [
+    {
+      "name": "TEST_CSV",
+      "type": "custom",
+      "factory": "database.csv.CsvSchemaFactory",
+      "operand": {
+        "dataFile": "TEST01.csv"
+      }
+    },
+    {
+      "name": "TEST_MEM",
+      "type": "custom",
+      "factory": "database.memory.MemSchemaFactory",
+      "operand": {
+        "MEM_TABLE_1": [
+          {
+            "ID": 0,
+            "MEM_STR": "str0"
+          },
+          {
+            "ID": 1,
+            "MEM_STR": "str1"
+          },
+          {
+            "ID": 2,
+            "MEM_STR": "str2"
+          }
+        ]
+      }
+    }
+  ]
+}
