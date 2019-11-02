@@ -1,5 +1,6 @@
-package com.github.quxiucheng.calcite.parser.tutorial.sample;
+package com.github.quxiucheng.calcite.parser.tutorial.sample.statement;
 
+import com.github.quxiucheng.calcite.parser.tutorial.sample.AbstractSample;
 import org.apache.calcite.sql.parser.SqlParseException;
 
 /**

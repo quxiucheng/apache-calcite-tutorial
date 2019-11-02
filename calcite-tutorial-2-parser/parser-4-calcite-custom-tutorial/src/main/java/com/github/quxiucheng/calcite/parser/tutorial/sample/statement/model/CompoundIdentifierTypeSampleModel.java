@@ -1,4 +1,4 @@
-package com.github.quxiucheng.calcite.parser.tutorial.sample.model;
+package com.github.quxiucheng.calcite.parser.tutorial.sample.statement.model;
 
 import org.apache.calcite.sql.SqlCall;
 import org.apache.calcite.sql.SqlNode;
@@ -9,13 +9,13 @@ import java.util.List;
 
 /**
  * @author quxiucheng
- * @date 2019-04-25 14:02:00
+ * @date 2019-04-25 11:09:00
  */
-public class CompoundIdentifierTypeCommaListModel extends SqlCall {
+public class CompoundIdentifierTypeSampleModel extends SqlCall {
 
     private List<List<SqlNode>> all;
 
-    public CompoundIdentifierTypeCommaListModel(List<List<SqlNode>> all, SqlParserPos pos) {
+    public CompoundIdentifierTypeSampleModel(List<List<SqlNode>> all,SqlParserPos pos) {
         super(pos);
         this.all = all;
     }
