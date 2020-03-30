@@ -821,7 +821,7 @@ SqlNode PropertyValue() :
 
     imports: [
         "com.github.quxiucheng.calcite.parser.tutorial.SqlCreateFunction"
-        "com.github.quxiucheng.calcite.parser.tutorial.sample.model.*"
+        "com.github.quxiucheng.calcite.parser.tutorial.sample.statements.model.*"
     ]
 ```
 

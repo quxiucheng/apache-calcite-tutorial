@@ -44,7 +44,8 @@ data: {
     # 导入处理的语句
     imports: [
         "com.github.quxiucheng.calcite.parser.tutorial.SqlCreateFunction"
-        "com.github.quxiucheng.calcite.parser.tutorial.sample.model.*"
+        "com.github.quxiucheng.calcite.parser.tutorial.sample.statement.model.*"
+        "com.github.quxiucheng.calcite.parser.tutorial.sample.type.model.*"
     ]
     # List of new keywords. Example: "DATABASES", "TABLES". If the keyword is not a reserved
     # keyword add it to 'nonReservedKeywords' section.
@@ -66,6 +67,7 @@ data: {
         "SIMPLE_IDENTIFIER_COMMA_LIST_SAMPLE"
         "COMPOUND_IDENTIFIER_SAMPLE"
         "COMPOUND_IDENTIFIER_TYPE_COMMA_LIST_SAMPLE"
+
     ]
 
     # List of keywords from "keywords" section that are not reserved.
@@ -414,6 +416,7 @@ data: {
     # Return type of method implementation should be "SqlIdentifier".
     # 用于解析自定义数据类型的方法列表。
     dataTypeParserMethods: [
+        "SqlArrayType()"
     ]
 
     # List of methods for parsing extensions to "ALTER <scope>" calls.
@@ -449,7 +452,9 @@ data: {
     # 作为“statementParserMethods”、“literalParserMethods”或“dataTypeParserMethods”的一部分给出。
     implementationFiles: [
         "parserImpls.ftl",
-        "parserImplsSample.ftl"
+        "parserImplsStatementSample.ftl",
+        "parserImplsTypeSample.ftl",
+
     ]
 
     includeCompoundIdentifier: true
