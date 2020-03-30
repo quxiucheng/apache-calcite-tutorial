@@ -14,6 +14,8 @@
         <module>calcite-tutorial-2-parser</module>
         <module>calcite-tutorial-3-schema</module>
         <module>calcite-tutorial-4-validator</module>
+        <module>calcite-tutorial-9-rule</module>
+        <module>calcite-tutorial-common</module>
     </modules>
 
 
