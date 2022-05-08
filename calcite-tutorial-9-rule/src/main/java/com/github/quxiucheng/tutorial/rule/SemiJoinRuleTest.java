@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.SemiJoinRule;
 
 /**
@@ -13,7 +14,7 @@ public class SemiJoinRuleTest {
                 + "  select distinct deptno from hr.emps"
                 + "  ) using (deptno)";
         RuleTester.printProcessRule(sql,
-                SemiJoinRule.PROJECT);
+                CoreRules.SEMI_JOIN_PROJECT_TRANSPOSE);
     }
     /**
     sql:

@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.SortProjectTransposeRule;
 
 /**
@@ -10,7 +11,7 @@ import org.apache.calcite.rel.rules.SortProjectTransposeRule;
 public class SortProjectTransposeRuleTest {
     public static void main(String[] args) {
         String sql = "select * from hr.emps order by name";
-        RuleTester.printOriginalCompare(sql, SortProjectTransposeRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql, CoreRules.SORT_PROJECT_TRANSPOSE);
     }
     /**
      sql:

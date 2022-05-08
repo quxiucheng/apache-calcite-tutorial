@@ -1,6 +1,7 @@
 package com.github.quxiucheng.tutorial.rule;
 
 import org.apache.calcite.rel.rules.CalcRemoveRule;
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.ProjectToCalcRule;
 
 /**
@@ -13,7 +14,7 @@ import org.apache.calcite.rel.rules.ProjectToCalcRule;
 public class CalcRemoveRuleTest {
     public static void main(String[] args) {
         String sql = "select * from hr.emps";
-        RuleTester.printProcessRule(sql, ProjectToCalcRule.INSTANCE, CalcRemoveRule.INSTANCE);
+        RuleTester.printProcessRule(sql, CoreRules.PROJECT_TO_CALC, CoreRules.CALC_REMOVE);
     }
     /**
     sql:

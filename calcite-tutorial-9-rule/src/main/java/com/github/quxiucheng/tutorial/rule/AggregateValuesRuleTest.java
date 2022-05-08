@@ -1,6 +1,7 @@
 package com.github.quxiucheng.tutorial.rule;
 
 import org.apache.calcite.rel.rules.AggregateValuesRule;
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.PruneEmptyRules;
 import org.apache.calcite.rel.rules.ReduceExpressionsRule;
 
@@ -17,11 +18,11 @@ public class AggregateValuesRuleTest {
         String sql = " SELECT sum(salary) FROM hr.emps WHERE 1 = 0";
         RuleTester.printProcessRule(sql,
                 // 去除表达式
-                ReduceExpressionsRule.FILTER_INSTANCE,
+                CoreRules.PROJECT_REDUCE_EXPRESSIONS,
                 // 去除空行
                 PruneEmptyRules.PROJECT_INSTANCE,
                 // 聚合值
-                AggregateValuesRule.INSTANCE);
+                CoreRules.AGGREGATE_VALUES);
 
     }
     /**

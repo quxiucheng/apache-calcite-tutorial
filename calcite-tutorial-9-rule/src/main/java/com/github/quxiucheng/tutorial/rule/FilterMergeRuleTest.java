@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.FilterMergeRule;
 import org.apache.calcite.rel.rules.FilterProjectTransposeRule;
 
@@ -15,8 +16,8 @@ public class FilterMergeRuleTest {
                 "where t.deptno=1";
         RuleTester.printProcessRule(sql,
                 // 下推fitler到project
-                FilterProjectTransposeRule.INSTANCE,
-                FilterMergeRule.INSTANCE);
+                CoreRules.FILTER_PROJECT_TRANSPOSE,
+                CoreRules.FILTER_MERGE);
     }
     /**
      sql:

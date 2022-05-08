@@ -1,6 +1,7 @@
 package com.github.quxiucheng.tutorial.rule;
 
 import org.apache.calcite.plan.hep.HepProgramBuilder;
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.JoinCommuteRule;
 
 /**
@@ -14,7 +15,8 @@ public class JoinCommuteRuleTest {
         HepProgramBuilder hepProgramBuilder = new HepProgramBuilder();
         hepProgramBuilder.addMatchLimit(1);
         String sql = "select e.name from hr.emps e right join hr.depts d on e.deptno = d.deptno";
-        RuleTester.printOriginalCompare(sql, hepProgramBuilder, JoinCommuteRule.SWAP_OUTER);
+        RuleTester.printOriginalCompare(sql, hepProgramBuilder,
+                CoreRules.JOIN_COMMUTE_OUTER);
     }
 
     /**

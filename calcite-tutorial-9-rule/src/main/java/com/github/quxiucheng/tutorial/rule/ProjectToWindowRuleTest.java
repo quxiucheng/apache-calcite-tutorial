@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.ProjectToWindowRule;
 
 /**
@@ -10,7 +11,8 @@ import org.apache.calcite.rel.rules.ProjectToWindowRule;
 public class ProjectToWindowRuleTest {
     public static void main(String[] args) {
         String sql = "select count(*) over(partition by deptno order by name) as count1 from hr.emps";
-        RuleTester.printOriginalCompare(sql, ProjectToWindowRule.PROJECT);
+        RuleTester.printOriginalCompare(sql,
+                CoreRules.PROJECT_WINDOW_TRANSPOSE);
     }
     /**
      sql:

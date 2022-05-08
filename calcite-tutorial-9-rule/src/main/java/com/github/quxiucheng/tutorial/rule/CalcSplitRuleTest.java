@@ -1,6 +1,7 @@
 package com.github.quxiucheng.tutorial.rule;
 
 import org.apache.calcite.rel.rules.CalcSplitRule;
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.FilterToCalcRule;
 import org.apache.calcite.rel.rules.ProjectToCalcRule;
 
@@ -13,11 +14,11 @@ import org.apache.calcite.rel.rules.ProjectToCalcRule;
 public class CalcSplitRuleTest {
     public static void main(String[] args) {
         String sql = "select name as ename from hr.emps where name='abcd'";
-        RuleTester.printProcessRule(sql, FilterToCalcRule.INSTANCE,
-                ProjectToCalcRule.INSTANCE,
+        RuleTester.printProcessRule(sql,
+                CoreRules.FILTER_TO_CALC,CoreRules.PROJECT_TO_CALC, CoreRules.CALC_SPLIT,
                 // 可有可无,
-                // CalcMergeRule.INSTANCE,
-                CalcSplitRule.INSTANCE);
+                // CalcMerge,
+                CoreRules.CALC_SPLIT);
 
     }
 

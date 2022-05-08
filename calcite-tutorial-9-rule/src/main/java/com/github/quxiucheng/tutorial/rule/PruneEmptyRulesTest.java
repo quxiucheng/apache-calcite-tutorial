@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.PruneEmptyRules;
 import org.apache.calcite.rel.rules.ReduceExpressionsRule;
 
@@ -25,7 +26,7 @@ import org.apache.calcite.rel.rules.ReduceExpressionsRule;
 public class PruneEmptyRulesTest {
     public static void main(String[] args) {
         String sql = "select * from hr.emps where 1=2";
-        RuleTester.printProcessRule(sql, ReduceExpressionsRule.FILTER_INSTANCE, PruneEmptyRules.PROJECT_INSTANCE);
+        RuleTester.printProcessRule(sql, CoreRules.FILTER_REDUCE_EXPRESSIONS, PruneEmptyRules.PROJECT_INSTANCE);
 
     }
     /**

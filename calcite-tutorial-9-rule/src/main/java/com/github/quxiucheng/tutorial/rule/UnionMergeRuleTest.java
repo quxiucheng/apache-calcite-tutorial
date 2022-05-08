@@ -2,6 +2,8 @@ package com.github.quxiucheng.tutorial.rule;
 
 import org.apache.calcite.rel.rules.UnionMergeRule;
 
+import static org.apache.calcite.rel.rules.CoreRules.UNION_MERGE;
+
 /**
  * 将多个union合并到一起
  * @author quxiucheng
@@ -14,7 +16,7 @@ public class UnionMergeRuleTest {
                 + "select * from hr.emps where deptno = 20\n"
                 + "union all\n"
                 + "select * from hr.emps where deptno = 30\n";
-        RuleTester.printProcessRule(sql, UnionMergeRule.INSTANCE);
+        RuleTester.printProcessRule(sql, UNION_MERGE);
     }
     /**
      sql:

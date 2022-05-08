@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.FilterSetOpTransposeRule;
 
 /**
@@ -16,7 +17,7 @@ public class FilterSetOpTransposeRuleTest {
                 "union all " +
                 "select name from hr.emps) t " +
                 "where name = '1'";
-        RuleTester.printOriginalCompare(sql,  FilterSetOpTransposeRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql,  CoreRules.FILTER_SET_OP_TRANSPOSE);
     }
     /**
      sql:

@@ -13,7 +13,13 @@ import org.apache.calcite.plan.hep.HepProgramBuilder;
 import org.apache.calcite.rel.RelNode;
 import org.apache.calcite.rel.RelRoot;
 import org.apache.calcite.rel.metadata.DefaultRelMetadataProvider;
+import org.apache.calcite.rel.rel2sql.RelToSqlConverter;
+import org.apache.calcite.rex.RexSqlStandardConvertletTable;
+import org.apache.calcite.rex.RexToSqlNodeConverter;
+import org.apache.calcite.rex.RexToSqlNodeConverterImpl;
+import org.apache.calcite.sql.SqlDialectFactoryImpl;
 import org.apache.calcite.sql.SqlNode;
+import org.apache.calcite.sql.dialect.MysqlSqlDialect;
 import org.apache.calcite.sql.parser.SqlParser;
 import org.apache.calcite.sql2rel.SqlToRelConverter;
 
@@ -63,6 +69,9 @@ public class RuleTester {
             System.out.println();
             System.out.println("优化后:");
             System.out.println(RelOptUtil.toString(bestExp));
+            RelToSqlConverter relToSqlConverter = new RelToSqlConverter(MysqlSqlDialect.DEFAULT);
+            SqlNode afterSqlNode = relToSqlConverter.visitRoot( bestExp).asStatement();
+            System.out.println(afterSqlNode.toSqlString(MysqlSqlDialect.DEFAULT));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -118,6 +127,10 @@ public class RuleTester {
             System.out.println("after执行:");
             System.out.println(RelOptUtil.toString(afterBestExp));
             System.out.println();
+            RelToSqlConverter relToSqlConverter = new RelToSqlConverter(MysqlSqlDialect.DEFAULT);
+            SqlNode afterSqlNode = relToSqlConverter.visitChild(0, afterBestExp).asStatement();
+            System.out.println(afterSqlNode.toSqlString(MysqlSqlDialect.DEFAULT));
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -1,6 +1,7 @@
 package com.github.quxiucheng.tutorial.rule;
 
 import org.apache.calcite.rel.rules.AggregateExpandDistinctAggregatesRule;
+import org.apache.calcite.rel.rules.CoreRules;
 
 /**
  *
@@ -11,7 +12,8 @@ import org.apache.calcite.rel.rules.AggregateExpandDistinctAggregatesRule;
 public class AggregateExpandDistinctAggregatesRuleTest {
     public static void main(String[] args) {
         String sql = "select deptno, count(distinct name) from hr.emps group by deptno";
-        RuleTester.printOriginalCompare(sql, AggregateExpandDistinctAggregatesRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql,
+                CoreRules.AGGREGATE_EXPAND_DISTINCT_AGGREGATES);
     }
     /**
      *

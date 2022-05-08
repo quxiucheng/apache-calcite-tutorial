@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.ProjectJoinTransposeRule;
 
 /**
@@ -11,7 +12,7 @@ public class ProjectJoinTransposeRuleTest {
     public static void main(String[] args) {
         String sql = "select e.name as ename,d.name as dname from hr.emps e join hr.depts d on e.deptno = d.deptno";
         RuleTester.printProcessRule(sql,
-                ProjectJoinTransposeRule.INSTANCE);
+                CoreRules.PROJECT_JOIN_TRANSPOSE);
     }
     /**
      sql:

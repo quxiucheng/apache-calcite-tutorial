@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.ProjectSetOpTransposeRule;
 
 /**
@@ -13,7 +14,7 @@ public class ProjectSetOpTransposeRuleTest {
                 "(select * from hr.emps e1 " +
                 "union all " +
                 "select * from hr.emps e2) ";
-        RuleTester.printOriginalCompare(sql, ProjectSetOpTransposeRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql, CoreRules.PROJECT_SET_OP_TRANSPOSE);
     }
 
     /**

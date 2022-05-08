@@ -1,6 +1,7 @@
 package com.github.quxiucheng.tutorial.rule;
 
 import org.apache.calcite.rel.rules.AggregateRemoveRule;
+import org.apache.calcite.rel.rules.CoreRules;
 
 /**
  * 分组字段是key时,移除掉分组字段
@@ -10,7 +11,9 @@ import org.apache.calcite.rel.rules.AggregateRemoveRule;
 public class AggregateRemoveRuleTest {
     public static void main(String[] args) {
         String sql = "select empid from hr.emps group by empid";
-        RuleTester.printOriginalCompare(sql, AggregateRemoveRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql,
+
+                CoreRules.AGGREGATE_REMOVE);
     }
     /**
      sql:

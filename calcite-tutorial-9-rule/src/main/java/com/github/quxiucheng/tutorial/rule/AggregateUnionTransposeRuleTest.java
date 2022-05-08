@@ -1,6 +1,7 @@
 package com.github.quxiucheng.tutorial.rule;
 
 import org.apache.calcite.rel.rules.AggregateUnionTransposeRule;
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.ProjectMergeRule;
 import org.apache.calcite.rel.rules.ProjectSetOpTransposeRule;
 
@@ -19,11 +20,11 @@ public class AggregateUnionTransposeRuleTest {
                 "group by name";
         RuleTester.printProcessRule(sql,
                 // 将project(投影) 下推到 SetOp(例如:union ,minus, except)
-                ProjectSetOpTransposeRule.INSTANCE,
-                // 合并投影
-                ProjectMergeRule.INSTANCE,
 
-                AggregateUnionTransposeRule.INSTANCE);
+                CoreRules.PROJECT_SET_OP_TRANSPOSE,
+                // 合并投影
+                 CoreRules.PROJECT_MERGE,
+                CoreRules.AGGREGATE_UNION_TRANSPOSE);
     }
     /**
         sql:

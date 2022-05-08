@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.ProjectMergeRule;
 import org.apache.calcite.rel.rules.ProjectSetOpTransposeRule;
 
@@ -16,8 +17,8 @@ public class ProjectMergeRuleTest {
                 "select * from hr.emps e2) ";
         RuleTester.printProcessRule(sql,
                 // 将project(投影) 下推到 SetOp(例如:union ,minus, except)
-                ProjectSetOpTransposeRule.INSTANCE,
-                ProjectMergeRule.INSTANCE
+                CoreRules.PROJECT_SET_OP_TRANSPOSE,
+                 CoreRules.PROJECT_MERGE
         );
     }
 

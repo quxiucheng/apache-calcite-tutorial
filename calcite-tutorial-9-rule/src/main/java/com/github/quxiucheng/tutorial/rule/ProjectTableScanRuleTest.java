@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.ProjectTableScanRule;
 
 /**
@@ -10,6 +11,6 @@ import org.apache.calcite.rel.rules.ProjectTableScanRule;
 public class ProjectTableScanRuleTest {
     public static void main(String[] args) {
         String sql = "select * from hr.emps";
-        RuleTester.printProcessRule(sql, ProjectTableScanRule.INSTANCE);
+        RuleTester.printProcessRule(sql, CoreRules.PROJECT_TABLE_SCAN);
     }
 }

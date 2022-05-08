@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.JoinAddRedundantSemiJoinRule;
 import org.apache.calcite.rel.rules.SemiJoinRemoveRule;
 
@@ -12,8 +13,8 @@ public class SemiJoinRemoveRuleTest {
     public static void main(String[] args) {
         String sql = "select e.name as ename,d.name as dname from hr.emps e join hr.depts d on e.deptno = d.deptno";
         RuleTester.printProcessRule(sql,
-                JoinAddRedundantSemiJoinRule.INSTANCE,
-                SemiJoinRemoveRule.INSTANCE
+                CoreRules.JOIN_ADD_REDUNDANT_SEMI_JOIN,
+                CoreRules.SEMI_JOIN_REMOVE
         );
     }
     /**

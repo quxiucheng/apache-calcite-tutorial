@@ -12,6 +12,7 @@ import org.apache.calcite.sql.fun.SqlStdOperatorTable;
 import org.apache.calcite.sql.parser.SqlParser;
 import org.apache.calcite.sql.validate.SqlConformance;
 import org.apache.calcite.sql.validate.SqlConformanceEnum;
+import org.apache.calcite.sql.validate.SqlValidator;
 import org.apache.calcite.sql.validate.SqlValidatorCatalogReader;
 import org.apache.calcite.sql.validate.SqlValidatorImpl;
 
@@ -23,16 +24,16 @@ import java.util.List;
  */
 public class TutorialSqlValidator extends SqlValidatorImpl {
 
-
-    public TutorialSqlValidator(SqlOperatorTable opTab, SqlValidatorCatalogReader catalogReader, RelDataTypeFactory typeFactory, SqlConformance conformance) {
-        super(opTab, catalogReader, typeFactory, conformance);
+    public TutorialSqlValidator(SqlOperatorTable opTab, SqlValidatorCatalogReader catalogReader, RelDataTypeFactory typeFactory, Config config) {
+        super(opTab, catalogReader, typeFactory, config);
     }
+
 
     public static SqlValidatorImpl createSqlValidator(SqlValidatorCatalogReader catalogReader){
         SqlStdOperatorTable sqlStdOperatorTable = SqlStdOperatorTable.instance();
         // 注册ramp函数
         sqlStdOperatorTable.register(new DedupFunction());
-        return new TutorialSqlValidator(sqlStdOperatorTable,catalogReader, new JavaTypeFactoryImpl(), SqlConformanceEnum.DEFAULT);
+        return new TutorialSqlValidator(sqlStdOperatorTable,catalogReader, new JavaTypeFactoryImpl(), SqlValidator.Config.DEFAULT);
     }
 
     public static SqlValidatorImpl createMockSqlValidator(SqlParser.Config parserConfig){

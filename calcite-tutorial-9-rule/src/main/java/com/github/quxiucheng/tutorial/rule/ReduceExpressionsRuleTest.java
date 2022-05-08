@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.ReduceExpressionsRule;
 
 /**
@@ -19,7 +20,7 @@ import org.apache.calcite.rel.rules.ReduceExpressionsRule;
 public class ReduceExpressionsRuleTest {
     public static void main(String[] args) {
         String sql = "select * from hr.emps where 1=2";
-        RuleTester.printOriginalCompare(sql, ReduceExpressionsRule.FILTER_INSTANCE);
+        RuleTester.printOriginalCompare(sql,  CoreRules.FILTER_REDUCE_EXPRESSIONS);
     }
     /**
      *

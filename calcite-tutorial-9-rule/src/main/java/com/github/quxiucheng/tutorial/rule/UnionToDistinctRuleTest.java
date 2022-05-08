@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.UnionToDistinctRule;
 
 /**
@@ -10,7 +11,7 @@ import org.apache.calcite.rel.rules.UnionToDistinctRule;
 public class UnionToDistinctRuleTest {
     public static void main(String[] args) {
         final String sql = "select * from hr.depts union select * from hr.depts";
-        RuleTester.printProcessRule(sql, UnionToDistinctRule.INSTANCE);
+        RuleTester.printProcessRule(sql, CoreRules.UNION_TO_DISTINCT);
     }
     /**
      sql:

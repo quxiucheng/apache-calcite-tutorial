@@ -10,6 +10,6 @@ import org.apache.calcite.rel.rules.SortRemoveRule;
 public class SortRemoveRuleTest {
     public static void main(String[] args) {
         String sql = "select * from hr.emps order by name";
-        // RuleCompare.printVolcanoPlannerProcessRule(sql, SortRemoveRule.INSTANCE);
+        // RuleCompare.printVolcanoPlannerProcessRule(sql, SortRemove);
     }
 }

@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.JoinProjectTransposeRule;
 import org.apache.calcite.rel.rules.JoinPushThroughJoinRule;
 
@@ -35,7 +36,7 @@ public class JoinPushThroughJoinRuleTest {
                 ;
 
         RuleTester.printProcessRule(sql,
-                JoinProjectTransposeRule.LEFT_PROJECT,
+                CoreRules.JOIN_PROJECT_LEFT_TRANSPOSE,
                 JoinPushThroughJoinRule.LEFT);
     }
 }

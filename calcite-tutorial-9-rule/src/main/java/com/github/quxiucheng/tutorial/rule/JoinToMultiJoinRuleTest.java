@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.JoinToMultiJoinRule;
 
 /**
@@ -23,7 +24,7 @@ public class JoinToMultiJoinRuleTest {
     public static void main(String[] args) {
         String sql = "select e.name as ename,d.name as dname from hr.emps e join hr.depts d on e.deptno = d.deptno where e.name = '1'";
         // HepMatchOrder.BOTTOM_UP
-        RuleTester.printProcessRule(sql, JoinToMultiJoinRule.INSTANCE);
+        RuleTester.printProcessRule(sql, CoreRules.JOIN_TO_MULTI_JOIN);
     }
 
     /**

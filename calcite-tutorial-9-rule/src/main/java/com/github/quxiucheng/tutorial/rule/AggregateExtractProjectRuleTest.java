@@ -6,6 +6,7 @@ import org.apache.calcite.rel.core.RelFactories;
 import org.apache.calcite.rel.core.TableScan;
 import org.apache.calcite.rel.rules.AggregateExtractProjectRule;
 import org.apache.calcite.rel.rules.AggregateProjectMergeRule;
+import org.apache.calcite.rel.rules.CoreRules;
 
 /**
  * 将 聚合,投影 merge之后的结构,提取出来
@@ -21,7 +22,7 @@ public class AggregateExtractProjectRuleTest {
                         RelFactories.LOGICAL_BUILDER);
         RuleTester.printRuleCompare(sql,
                 // 执行聚合
-                Lists.newArrayList(AggregateProjectMergeRule.INSTANCE),
+                Lists.newArrayList(CoreRules.PROJECT_MERGE),
                 // 提取投影 project
                 Lists.newArrayList(rule));
 

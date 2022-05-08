@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.FilterJoinRule;
 import org.apache.calcite.rel.rules.JoinPushExpressionsRule;
 
@@ -14,9 +15,9 @@ public class JoinPushExpressionsRuleTest {
         String sql = "select e.deptno from hr.emps e left join hr.emps d on e.deptno = d.deptno where e.deptno +2 = d.deptno *2";
 
         RuleTester.printProcessRule(sql,
-                FilterJoinRule.FILTER_ON_JOIN,
+                 CoreRules.FILTER_INTO_JOIN,
                 // join下推到project中
-                JoinPushExpressionsRule.INSTANCE
+                CoreRules.JOIN_PUSH_EXPRESSIONS
         );
 
     }

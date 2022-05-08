@@ -2,6 +2,8 @@ package com.github.quxiucheng.tutorial.rule;
 
 import org.apache.calcite.rel.rules.JoinToCorrelateRule;
 
+import static org.apache.calcite.rel.rules.CoreRules.JOIN_TO_CORRELATE;
+
 /**
  * 将join 转换为 corelate (nested-loop join)
  * 不适用right join,full join 等
@@ -11,7 +13,7 @@ import org.apache.calcite.rel.rules.JoinToCorrelateRule;
 public class JoinToCorrelateRuleTest {
     public static void main(String[] args) {
         String sql = "select e.name as ename,d.name as dname from hr.emps e join hr.depts d on e.deptno = d.deptno";
-        RuleTester.printOriginalCompare(sql, JoinToCorrelateRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql, JOIN_TO_CORRELATE);
     }
 
     /**

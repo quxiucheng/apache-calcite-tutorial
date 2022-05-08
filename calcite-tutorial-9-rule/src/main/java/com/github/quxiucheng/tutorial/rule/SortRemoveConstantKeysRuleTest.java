@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.SortRemoveConstantKeysRule;
 
 /**
@@ -10,7 +11,7 @@ import org.apache.calcite.rel.rules.SortRemoveConstantKeysRule;
 public class SortRemoveConstantKeysRuleTest {
     public static void main(String[] args) {
         String sql = "select name from hr.emps where name = 'abc' order by name";
-        RuleTester.printOriginalCompare(sql, SortRemoveConstantKeysRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql, CoreRules.SORT_REMOVE_CONSTANT_KEYS);
     }
     /**
     sql:

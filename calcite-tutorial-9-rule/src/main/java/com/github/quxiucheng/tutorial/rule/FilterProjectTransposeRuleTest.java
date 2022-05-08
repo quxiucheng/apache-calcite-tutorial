@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.FilterProjectTransposeRule;
 
 /**
@@ -12,7 +13,7 @@ public class FilterProjectTransposeRuleTest {
         String sql = "select * from " +
                 "(select * from hr.emps where name = 'a') t " +
                 "where t.deptno=1";
-        RuleTester.printOriginalCompare(sql, FilterProjectTransposeRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql, CoreRules.FILTER_PROJECT_TRANSPOSE);
     }
 
     /**

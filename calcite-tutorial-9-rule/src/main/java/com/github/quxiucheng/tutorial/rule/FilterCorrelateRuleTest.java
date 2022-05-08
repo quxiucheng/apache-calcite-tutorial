@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.FilterCorrelateRule;
 import org.apache.calcite.rel.rules.JoinToCorrelateRule;
 
@@ -12,7 +13,7 @@ import org.apache.calcite.rel.rules.JoinToCorrelateRule;
 public class FilterCorrelateRuleTest {
     public static void main(String[] args) {
         String sql = "select e.name as ename,d.name as dname from hr.emps e join hr.depts d on e.deptno = d.deptno where e.name = '1'";
-        RuleTester.printProcessRule(sql, JoinToCorrelateRule.INSTANCE, FilterCorrelateRule.INSTANCE);
+        RuleTester.printProcessRule(sql, CoreRules.JOIN_TO_CORRELATE, CoreRules.FILTER_CORRELATE);
     }
     /**
      sql:

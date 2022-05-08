@@ -1,6 +1,7 @@
 package com.github.quxiucheng.tutorial.rule;
 
 import org.apache.calcite.rel.rules.AggregateProjectPullUpConstantsRule;
+import org.apache.calcite.rel.rules.CoreRules;
 
 /**
  * 从聚合中删除常量键。
@@ -13,7 +14,7 @@ public class AggregateProjectPullUpConstantsRuleTest {
                 + "from hr.emps "
                 + "where deptno = 10 "
                 + "group by deptno, salary";
-        RuleTester.printOriginalCompare(sql, AggregateProjectPullUpConstantsRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql, CoreRules.AGGREGATE_PROJECT_PULL_UP_CONSTANTS);
     }
 
     /**

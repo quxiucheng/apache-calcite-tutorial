@@ -1,7 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
-import org.apache.calcite.rel.rules.ProjectSortTransposeRule;
-import org.apache.calcite.rel.rules.SortProjectTransposeRule;
+import org.apache.calcite.rel.rules.CoreRules;
 
 /**
  * 将project下推到sort中
@@ -13,6 +12,7 @@ import org.apache.calcite.rel.rules.SortProjectTransposeRule;
 public class ProjectSortTransposeRuleTest {
     public static void main(String[] args) {
         String sql = "select * from hr.emps order by name";
-        RuleTester.printProcessRule(sql, SortProjectTransposeRule.INSTANCE, ProjectSortTransposeRule.INSTANCE);
+        RuleTester.printProcessRule(sql,
+                CoreRules.SORT_PROJECT_TRANSPOSE);
     }
 }

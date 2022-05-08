@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.JoinToCorrelateRule;
 import org.apache.calcite.rel.rules.ProjectCorrelateTransposeRule;
 
@@ -14,8 +15,8 @@ public class ProjectCorrelateTransposeRuleTest {
         String sql = "select e.name as ename,d.name as dname from hr.emps e join hr.depts d on e.deptno = d.deptno";
         RuleTester.printProcessRule(sql,
                 // join转correlateRule
-                JoinToCorrelateRule.INSTANCE,
-                ProjectCorrelateTransposeRule.INSTANCE);
+                CoreRules.JOIN_TO_CORRELATE,
+                CoreRules.PROJECT_CORRELATE_TRANSPOSE);
     }
     /**
      sql:

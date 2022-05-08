@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.ValuesReduceRule;
 
 /**
@@ -10,7 +11,7 @@ import org.apache.calcite.rel.rules.ValuesReduceRule;
 public class ValuesReduceRuleTest {
     public static void main(String[] args) {
         String sql = "select a, b from (values (10, 'x'), (20, 'y')) as t(a, b) where a < 15";
-        RuleTester.printProcessRule(sql, ValuesReduceRule.FILTER_INSTANCE);
+        RuleTester.printProcessRule(sql, CoreRules.FILTER_VALUES_MERGE);
     }
     /**
     sql:

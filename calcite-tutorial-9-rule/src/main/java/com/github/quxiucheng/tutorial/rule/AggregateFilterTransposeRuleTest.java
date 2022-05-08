@@ -2,6 +2,7 @@ package com.github.quxiucheng.tutorial.rule;
 
 import com.google.common.collect.Lists;
 import org.apache.calcite.rel.rules.AggregateFilterTransposeRule;
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.FilterAggregateTransposeRule;
 
 /**
@@ -14,9 +15,10 @@ public class AggregateFilterTransposeRuleTest {
         String sql = "select * from (select name, count(0) as cnt from hr.emps group by name ) t where name='1' ";
         RuleTester.printRuleCompare(sql,
                 // 执行聚合
-                Lists.newArrayList(FilterAggregateTransposeRule.INSTANCE),
+                Lists.newArrayList(
+                        CoreRules.FILTER_AGGREGATE_TRANSPOSE),
                 // 提取投影 project
-                Lists.newArrayList(AggregateFilterTransposeRule.INSTANCE));
+                Lists.newArrayList(CoreRules.AGGREGATE_FILTER_TRANSPOSE));
     }
     /**
      *

@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.JoinAssociateRule;
 
 /**
@@ -15,6 +16,6 @@ public class JoinAssociateRuleTest {
                 "join hr.depts d1 on e.deptno = d1.deptno " +
                 "join hr.depts d2 on e.deptno = d2.deptno " +
                 "join hr.depts d3 on e.deptno = d3.deptno ";
-        RuleTester.printOriginalCompare(sql, JoinAssociateRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql, CoreRules.JOIN_ASSOCIATE);
     }
 }

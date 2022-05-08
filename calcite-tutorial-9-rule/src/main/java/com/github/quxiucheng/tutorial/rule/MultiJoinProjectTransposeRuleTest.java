@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.JoinToMultiJoinRule;
 import org.apache.calcite.rel.rules.MultiJoinProjectTransposeRule;
 import org.apache.calcite.rel.rules.ProjectJoinTransposeRule;
@@ -15,9 +16,9 @@ public class MultiJoinProjectTransposeRuleTest {
 
         RuleTester.printProcessRule(sql,
                 // project下推大到join中
-                ProjectJoinTransposeRule.INSTANCE,
-                JoinToMultiJoinRule.INSTANCE,
-                MultiJoinProjectTransposeRule.MULTI_LEFT_PROJECT);
+                CoreRules.PROJECT_JOIN_TRANSPOSE,
+                CoreRules.JOIN_TO_MULTI_JOIN,
+                CoreRules.MULTI_JOIN_LEFT_PROJECT);
 
     }
 }

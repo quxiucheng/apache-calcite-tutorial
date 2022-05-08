@@ -2,6 +2,7 @@ package com.github.quxiucheng.tutorial.rule;
 
 import org.apache.calcite.rel.rules.AggregateJoinTransposeRule;
 import org.apache.calcite.rel.rules.AggregateProjectMergeRule;
+import org.apache.calcite.rel.rules.CoreRules;
 
 /**
  * 将 聚合 下推到 join中
@@ -16,16 +17,16 @@ public class AggregateJoinTransposeRuleTest {
                 + "group by e.deptno,d.name";
         RuleTester.printOriginalCompare(sql,
                 // 将分组字段投影到project中,若不投影则无法下推
-                AggregateProjectMergeRule.INSTANCE,
+                 CoreRules.PROJECT_MERGE,
                 // 包括聚合函数
-                AggregateJoinTransposeRule.EXTENDED);
+                CoreRules.AGGREGATE_JOIN_TRANSPOSE_EXTENDED);
     }
     /**
      sql:
      select e.deptno,d.name from hr.emps as e join hr.depts as d on e.deptno = d.deptno group by e.deptno,d.name
 
      原始:
-     LogicalAggregate(group=[{0, 1}])               - 合并 AggregateProjectMergeRule.INSTANCE
+     LogicalAggregate(group=[{0, 1}])               - 合并 Aggregate CoreRules.PROJECT_MERGE
       LogicalProject(deptno=[$1], name=[$6])        - 合并
        LogicalJoin(condition=[=($1, $5)], joinType=[inner])
         EnumerableTableScan(table=[[hr, emps]])

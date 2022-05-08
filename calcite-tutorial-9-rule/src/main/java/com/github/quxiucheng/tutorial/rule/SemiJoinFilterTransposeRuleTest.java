@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.FilterJoinRule;
 import org.apache.calcite.rel.rules.JoinAddRedundantSemiJoinRule;
 import org.apache.calcite.rel.rules.SemiJoinFilterTransposeRule;
@@ -14,11 +15,11 @@ public class SemiJoinFilterTransposeRuleTest {
                 " where e.name = 'abc'";
         RuleTester.printProcessRule(sql,
                 // filter下推到join
-                FilterJoinRule.FILTER_ON_JOIN,
+                 CoreRules.FILTER_INTO_JOIN,
                 // 转成成semiJoin
-                JoinAddRedundantSemiJoinRule.INSTANCE,
+                CoreRules.JOIN_ADD_REDUNDANT_SEMI_JOIN,
                 // semiJoin下推到filter
-                SemiJoinFilterTransposeRule.INSTANCE);
+                CoreRules.SEMI_JOIN_FILTER_TRANSPOSE);
 
     }
 }

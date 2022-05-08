@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.FilterAggregateTransposeRule;
 
 /**
@@ -10,7 +11,7 @@ import org.apache.calcite.rel.rules.FilterAggregateTransposeRule;
 public class FilterAggregateTransposeRuleTest {
     public static void main(String[] args) {
         String sql = "select * from (select name, count(0) as cnt from hr.emps group by name ) t where name='1' ";
-        RuleTester.printOriginalCompare(sql, FilterAggregateTransposeRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql,  CoreRules.FILTER_AGGREGATE_TRANSPOSE);
 
     }
     /**

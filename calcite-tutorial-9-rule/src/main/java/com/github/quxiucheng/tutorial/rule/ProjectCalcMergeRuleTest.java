@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.FilterToCalcRule;
 import org.apache.calcite.rel.rules.ProjectCalcMergeRule;
 
@@ -11,7 +12,7 @@ import org.apache.calcite.rel.rules.ProjectCalcMergeRule;
 public class ProjectCalcMergeRuleTest {
     public static void main(String[] args) {
         String sql = "select * from hr.emps where name ='1'";
-        RuleTester.printProcessRule(sql, FilterToCalcRule.INSTANCE, ProjectCalcMergeRule.INSTANCE);
+        RuleTester.printProcessRule(sql, CoreRules.FILTER_TO_CALC, CoreRules.PROJECT_CALC_MERGE);
     }
 
     /**

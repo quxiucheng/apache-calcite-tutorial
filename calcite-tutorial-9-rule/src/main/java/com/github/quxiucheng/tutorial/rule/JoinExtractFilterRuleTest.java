@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.JoinExtractFilterRule;
 
 /**
@@ -10,7 +11,7 @@ import org.apache.calcite.rel.rules.JoinExtractFilterRule;
 public class JoinExtractFilterRuleTest {
     public static void main(String[] args) {
         String sql = "select e.name from hr.emps e join hr.depts d on e.deptno = d.deptno";
-        RuleTester.printOriginalCompare(sql, JoinExtractFilterRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql, CoreRules.JOIN_EXTRACT_FILTER);
     }
     /**
     sql:

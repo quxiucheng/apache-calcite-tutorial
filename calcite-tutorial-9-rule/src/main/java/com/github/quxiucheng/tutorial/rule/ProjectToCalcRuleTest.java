@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.ProjectToCalcRule;
 
 /**
@@ -10,7 +11,7 @@ import org.apache.calcite.rel.rules.ProjectToCalcRule;
 public class ProjectToCalcRuleTest {
     public static void main(String[] args) {
         String sql = "select * from hr.emps";
-        RuleTester.printOriginalCompare(sql, ProjectToCalcRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql, CoreRules.PROJECT_TO_CALC);
     }
     /**
      sql:

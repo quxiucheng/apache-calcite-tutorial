@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.FilterJoinRule;
 import org.apache.calcite.rel.rules.JoinPushTransitivePredicatesRule;
 
@@ -14,8 +15,8 @@ public class JoinPushTransitivePredicatesRuleTest {
         String sql = "select 1 from hr.emps e inner join hr.emps d on d.deptno = e.deptno where e.deptno > 7";
         RuleTester.printProcessRule(sql,
                 // filter下推到join
-                FilterJoinRule.FILTER_ON_JOIN,
-                JoinPushTransitivePredicatesRule.INSTANCE);
+                 CoreRules.FILTER_INTO_JOIN,
+                CoreRules.JOIN_PUSH_TRANSITIVE_PREDICATES);
     }
     /**
      sql:

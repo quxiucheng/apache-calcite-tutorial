@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.JoinAddRedundantSemiJoinRule;
 
 /**
@@ -11,7 +12,7 @@ import org.apache.calcite.rel.rules.JoinAddRedundantSemiJoinRule;
 public class JoinAddRedundantSemiJoinRuleTest {
     public static void main(String[] args) {
         String sql = "select e.name as ename,d.name as dname from hr.emps e join hr.depts d on e.deptno = d.deptno";
-        RuleTester.printOriginalCompare(sql, JoinAddRedundantSemiJoinRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql, CoreRules.JOIN_ADD_REDUNDANT_SEMI_JOIN);
     }
     /**
      sql:

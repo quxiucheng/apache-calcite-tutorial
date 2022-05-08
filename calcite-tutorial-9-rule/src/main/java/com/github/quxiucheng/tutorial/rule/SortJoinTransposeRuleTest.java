@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.SortJoinTransposeRule;
 import org.apache.calcite.rel.rules.SortProjectTransposeRule;
 
@@ -14,8 +15,8 @@ public class SortJoinTransposeRuleTest {
                 + "  select * from hr.emps"
                 + "    ) using (deptno) order by d.name";
         RuleTester.printProcessRule(sql,
-                SortProjectTransposeRule.INSTANCE,
-                SortJoinTransposeRule.INSTANCE);
+                CoreRules.SORT_PROJECT_TRANSPOSE,
+                CoreRules.SORT_JOIN_TRANSPOSE);
 
     }
     /**

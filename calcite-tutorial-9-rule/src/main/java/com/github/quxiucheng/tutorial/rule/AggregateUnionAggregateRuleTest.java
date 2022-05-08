@@ -1,6 +1,7 @@
 package com.github.quxiucheng.tutorial.rule;
 
 import org.apache.calcite.rel.rules.AggregateUnionAggregateRule;
+import org.apache.calcite.rel.rules.CoreRules;
 
 /**
  * union内的聚合和union外的聚合相同则删除
@@ -15,7 +16,7 @@ public class AggregateUnionAggregateRuleTest {
                 "union all " +
                 "select name from hr.emps group by name) t " +
                 "group by name";
-        RuleTester.printOriginalCompare(sql, AggregateUnionAggregateRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql, CoreRules.AGGREGATE_UNION_AGGREGATE);
     }
     /**
      sql:

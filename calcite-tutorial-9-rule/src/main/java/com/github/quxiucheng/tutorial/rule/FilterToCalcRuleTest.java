@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.FilterToCalcRule;
 
 /**
@@ -11,7 +12,7 @@ import org.apache.calcite.rel.rules.FilterToCalcRule;
 public class FilterToCalcRuleTest {
     public static void main(String[] args) {
         String sql = "select * from hr.emps where name='abcd'";
-        RuleTester.printOriginalCompare(sql, FilterToCalcRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql, CoreRules.FILTER_TO_CALC);
     }
 
     /**

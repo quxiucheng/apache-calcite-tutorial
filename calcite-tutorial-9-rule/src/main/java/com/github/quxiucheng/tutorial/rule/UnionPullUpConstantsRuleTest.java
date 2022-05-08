@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.UnionPullUpConstantsRule;
 
 /**
@@ -12,7 +13,7 @@ public class UnionPullUpConstantsRuleTest {
         final String sql = "select 2, deptno from hr.emps as e1\n"
                 + "union all\n"
                 + "select 2, deptno from hr.emps as e2";
-        RuleTester.printProcessRule(sql, UnionPullUpConstantsRule.INSTANCE);
+        RuleTester.printProcessRule(sql, CoreRules.UNION_PULL_UP_CONSTANTS);
     }
     /**
      sql:

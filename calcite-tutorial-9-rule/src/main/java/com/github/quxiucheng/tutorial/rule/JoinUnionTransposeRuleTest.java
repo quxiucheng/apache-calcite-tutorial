@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.JoinUnionTransposeRule;
 
 /**
@@ -12,7 +13,7 @@ public class JoinUnionTransposeRuleTest {
         String sql = "select * from "
                 + "(select * from hr.emps e1 union all select * from hr.emps e2) r1, "
                 + "hr.emps r2";
-        RuleTester.printOriginalCompare(sql, JoinUnionTransposeRule.LEFT_UNION);
+        RuleTester.printOriginalCompare(sql, CoreRules.JOIN_LEFT_UNION_TRANSPOSE);
     }
     /**
      sql:

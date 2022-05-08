@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.ProjectSetOpTransposeRule;
 import org.apache.calcite.rel.rules.SortUnionTransposeRule;
 
@@ -15,8 +16,8 @@ public class SortUnionTransposeRuleTest {
                 + "select b.name,b.deptno from hr.depts b\n"
                 + "order by name";
         RuleTester.printProcessRule(sql,
-                ProjectSetOpTransposeRule.INSTANCE,
-                SortUnionTransposeRule.MATCH_NULL_FETCH);
+                CoreRules.PROJECT_SET_OP_TRANSPOSE,
+                CoreRules.SORT_UNION_TRANSPOSE);
 
     }
     /**

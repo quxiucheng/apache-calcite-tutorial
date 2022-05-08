@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.TableScanRule;
 
 /**
@@ -10,7 +11,7 @@ import org.apache.calcite.rel.rules.TableScanRule;
 public class TableScanRuleTest {
     public static void main(String[] args) {
         String sql = "select name as ename from hr.emps where name='abcd'";
-        RuleTester.printProcessRule(sql, TableScanRule.INSTANCE);
+        RuleTester.printProcessRule(sql, CoreRules.PROJECT_TABLE_SCAN);
 
     }
 }

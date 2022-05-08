@@ -1,6 +1,7 @@
 package com.github.quxiucheng.tutorial.rule;
 
 import org.apache.calcite.rel.rules.AggregateProjectMergeRule;
+import org.apache.calcite.rel.rules.CoreRules;
 
 /**
  * 将 聚合字段和投影(Project)的字段 Merge到一起
@@ -12,7 +13,7 @@ public class AggregateProjectMergeRuleTest {
 
     public static void main(String[] args) {
         String sql = "select sum(salary) from hr.emps";
-        RuleTester.printOriginalCompare(sql, AggregateProjectMergeRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql, CoreRules.PROJECT_MERGE);
     }
     /**
      *

@@ -1,6 +1,7 @@
 package com.github.quxiucheng.tutorial.rule;
 
 import org.apache.calcite.rel.rules.AggregateReduceFunctionsRule;
+import org.apache.calcite.rel.rules.CoreRules;
 
 /**
  *
@@ -21,7 +22,8 @@ import org.apache.calcite.rel.rules.AggregateReduceFunctionsRule;
 public class AggregateReduceFunctionsRuleTest {
     public static void main(String[] args) {
         String sql = "select  avg(deptno) from hr.depts group by name";
-        RuleTester.printOriginalCompare(sql, AggregateReduceFunctionsRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql,
+                CoreRules.AGGREGATE_REDUCE_FUNCTIONS);
     }
 
     /**

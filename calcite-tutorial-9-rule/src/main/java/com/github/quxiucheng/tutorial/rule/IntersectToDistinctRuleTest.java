@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.IntersectToDistinctRule;
 
 /**
@@ -14,7 +15,7 @@ public class IntersectToDistinctRuleTest {
                 "intersect " +
                 "select name from hr.emps ";
 
-        RuleTester.printOriginalCompare(sql, IntersectToDistinctRule.INSTANCE);
+        RuleTester.printOriginalCompare(sql, CoreRules.INTERSECT_TO_DISTINCT);
     }
     /**
      sql:

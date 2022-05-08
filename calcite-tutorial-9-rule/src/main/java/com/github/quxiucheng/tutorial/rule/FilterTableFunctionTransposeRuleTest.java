@@ -1,5 +1,6 @@
 package com.github.quxiucheng.tutorial.rule;
 
+import org.apache.calcite.rel.rules.CoreRules;
 import org.apache.calcite.rel.rules.FilterTableFunctionTransposeRule;
 
 /**
@@ -10,7 +11,7 @@ import org.apache.calcite.rel.rules.FilterTableFunctionTransposeRule;
 public class FilterTableFunctionTransposeRuleTest {
     public static void main(String[] args) {
         String sql = "select * from table(dedup(cursor(select name from hr.emps), row(name))) where name = '1'";
-        RuleTester.printProcessRule(sql, FilterTableFunctionTransposeRule.INSTANCE);
+        RuleTester.printProcessRule(sql, CoreRules.FILTER_TABLE_FUNCTION_TRANSPOSE);
     }
     /**
      sql:
