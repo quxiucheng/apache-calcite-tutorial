@@ -16,30 +16,32 @@
             <groupId>org.apache.calcite</groupId>
             <artifactId>calcite-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
     </dependencies>
 
 
     <build>
         <plugins>
-            <!-- adding fmpp code gen -->
             <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>copy-fmpp-resources</id>
-                        <phase>initialize</phase>
+                        <phase>package</phase>
                         <goals>
-                            <goal>copy-resources</goal>
+                            <goal>jar-no-fork</goal>
                         </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/codegen</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>src/main/codegen</directory>
-                                    <filtering>false</filtering>
-                                </resource>
-                            </resources>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -61,7 +63,7 @@
                                 <artifactItem>
                                     <groupId>org.apache.calcite</groupId>
                                     <artifactId>calcite-core</artifactId>
-                                    <version>1.18.0</version>
+                                    <version>1.26.0</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                     <outputDirectory>${project.build.directory}/</outputDirectory>
@@ -72,6 +74,32 @@
                     </execution>
                 </executions>
             </plugin>
+
+
+            <!-- adding fmpp code gen -->
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <outputDirectory>${project.build.directory}/codegen</outputDirectory>
+                    <resources>
+                        <resource>
+                            <directory>src/main/codegen</directory>
+                            <filtering>false</filtering>
+                        </resource>
+                    </resources>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>copy-fmpp-resources</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
 
             <plugin>
                 <configuration>

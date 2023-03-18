@@ -99,55 +99,45 @@
                     <encoding>utf-8</encoding>
                 </configuration>
             </plugin>
-            <plugin>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.0</version>
-                <configuration>
-                    <attach>true</attach>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
 
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.drill.tools</groupId>
-                    <artifactId>drill-fmpp-maven-plugin</artifactId>
-                    <version>${drill-fmpp-maven-plugin.version}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.freemarker</groupId>
-                            <artifactId>freemarker</artifactId>
-                            <version>${freemarker.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>net.sourceforge.fmpp</groupId>
-                            <artifactId>fmpp</artifactId>
-                            <version>${fmpp.version}</version>
-                            <exclusions>
-                                <exclusion>
-                                    <groupId>org.freemarker</groupId>
-                                    <artifactId>freemarker</artifactId>
-                                </exclusion>
-                            </exclusions>
-                        </dependency>
-                    </dependencies>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>javacc-maven-plugin</artifactId>
-                    <version>${javacc-maven-plugin.version}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+<!--        <pluginManagement>-->
+<!--            <plugins>-->
+<!--                <plugin>-->
+<!--                    <groupId>org.apache.maven.plugins</groupId>-->
+<!--                    <artifactId>maven-resources-plugin</artifactId>-->
+<!--                    <version>3.1.0</version>-->
+<!--                </plugin>-->
+<!--                <plugin>-->
+<!--                    <groupId>org.apache.drill.tools</groupId>-->
+<!--                    <artifactId>drill-fmpp-maven-plugin</artifactId>-->
+<!--                    <version>${drill-fmpp-maven-plugin.version}</version>-->
+<!--                    <dependencies>-->
+<!--                        <dependency>-->
+<!--                            <groupId>org.freemarker</groupId>-->
+<!--                            <artifactId>freemarker</artifactId>-->
+<!--                            <version>${freemarker.version}</version>-->
+<!--                        </dependency>-->
+<!--                        <dependency>-->
+<!--                            <groupId>net.sourceforge.fmpp</groupId>-->
+<!--                            <artifactId>fmpp</artifactId>-->
+<!--                            <version>${fmpp.version}</version>-->
+<!--                            <exclusions>-->
+<!--                                <exclusion>-->
+<!--                                    <groupId>org.freemarker</groupId>-->
+<!--                                    <artifactId>freemarker</artifactId>-->
+<!--                                </exclusion>-->
+<!--                            </exclusions>-->
+<!--                        </dependency>-->
+<!--                    </dependencies>-->
+<!--                </plugin>-->
+<!--                <plugin>-->
+<!--                    <groupId>org.codehaus.mojo</groupId>-->
+<!--                    <artifactId>javacc-maven-plugin</artifactId>-->
+<!--                    <version>${javacc-maven-plugin.version}</version>-->
+<!--                </plugin>-->
+<!--            </plugins>-->
+<!--        </pluginManagement>-->
     </build>
     <distributionManagement>
         <snapshotRepository>

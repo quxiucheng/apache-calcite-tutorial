@@ -376,6 +376,15 @@ data: {
         "ZONE"
     ]
 
+    # List of non-reserved keywords to add;
+    # items in this list become non-reserved.
+    nonReservedKeywordsToAdd: [
+    ]
+
+    # Binary operators tokens.
+    # Example: "< INFIX_CAST: \"::\" >".
+    binaryOperatorsTokens: [
+    ]
     # List of additional join types. Each is a method with no arguments.
     # Example: LeftSemiJoin()
     # 其他连接类型的列表。每个方法都是没有参数的方法。
@@ -416,7 +425,6 @@ data: {
     # Return type of method implementation should be "SqlIdentifier".
     # 用于解析自定义数据类型的方法列表。
     dataTypeParserMethods: [
-        "SqlArrayType()"
     ]
 
     # List of methods for parsing extensions to "ALTER <scope>" calls.
@@ -442,6 +450,16 @@ data: {
     # 每个都必须接受参数 "(SqlParserPos pos)".
     dropStatementParserMethods: [
     ]
+    # List of methods for parsing builtin function calls.
+    # Return type of method implementation should be "SqlNode".
+    # Example: "DateFunctionCall()".
+    builtinFunctionCallMethods: [
+    ]
+    # Binary operators initialization.
+    # Example: "InfixCast".
+    extraBinaryExpressions: [
+    ]
+
 
     # List of files in @includes directory that have parser method
     # implementations for parsing custom SQL statements, literals or types
@@ -457,10 +475,12 @@ data: {
 
     ]
 
+
+
     includeCompoundIdentifier: true
     includeBraces: true
     includeAdditionalDeclarations: false
-
+    includePosixOperators: false
   }
 }
 freemarkerLinks: {
